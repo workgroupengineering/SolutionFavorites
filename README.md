@@ -11,78 +11,67 @@ or get the [CI build][vsixgallery].
 
 ----------------------------------------
 
-Stop hunting through deep folder hierarchies! **Solution Favorites** lets you pin your most-used files to a dedicated **Favorites** node at the top of Solution Explorer for instant access.
+Pin your most important files to the top of Solution Explorer. Stop digging through folders.
 
 ![Favorites Node](art/favorites-node.png)
 
-**Organize** with virtual folders | **Rearrange** with drag & drop | **Share** with your team via source control
+This extension adds a **Favorites** node to Solution Explorer where you can organize quick links to the files you use most. Built in response to a [highly-requested feature](https://developercommunity.visualstudio.com/t/Pinning-files-on-the-top-of-solution-exp/408940) from the Visual Studio community.
 
-## Getting Started
+## Quick Start
 
-1. Right-click any file in Solution Explorer
-2. Select **Add to Favorites**
-3. Access your pinned files from the **Favorites** node at the top of Solution Explorer
+1. Right-click any file in Solution Explorer → **Add to Favorites**
+2. Find your pinned files in the **Favorites** node at the top
 
 ![Add to Favorites](art/add-to-favorites.png)
 
 ## Features
 
-### Pin Files for Quick Access
+| Feature | Description |
+|---------|-------------|
+| **Pin Files** | Double-click to instantly open your most-used files |
+| **Virtual Folders** | Organize favorites into custom folder hierarchies |
+| **Drag & Drop** | Drag files from Solution Explorer onto Favorites, or rearrange within |
+| **Team Sharing** | `favorites.json` lives in your solution folder—commit it to share with your team |
+| **Toggle Visibility** | Hide/show Favorites from the Solution Explorer toolbar |
+| **Missing File Detection** | Visual indicators when files have been moved or deleted |
 
-Double-click any favorite to open it instantly. No more navigating through deep folder structures to find your frequently-used files.
+### Organize with Virtual Folders
 
-### Virtual Folders
+Create folders to group related favorites. Nest them as deep as you need.
 
-Organize your favorites into a custom folder structure:
+### Drag & Drop Support
 
-- Create folders at the root level or nested within other folders
-- Rename or remove folders from the right-click context menu
-- Build a hierarchy that matches how you think about your project
-
-### Drag and Drop
-
-Rearrange your favorites effortlessly:
-
-- Drag files from Solution Explorer directly onto the Favorites node to add them
-- Drag files between folders to reorganize
-- Move files back to the root Favorites node
-- Reorganize folders within the hierarchy
+- Drag files from Solution Explorer directly onto the Favorites node
+- Move files between folders
+- Rearrange the hierarchy however you like
 
 ### Toggle Visibility
 
-Use the **Toggle Favorites** button on the Solution Explorer toolbar to show or hide the Favorites node when you need more space.
+Use the toolbar button to show or hide the Favorites node when you need more space.
 
 ![Toggle visibility](art/toggle-visibility.png)
 
-### Missing File Detection
+### File Context Menu
 
-Files that have been moved or deleted are clearly indicated with:
-- A warning icon overlay
-- Italic text style
-- "File not found" tooltip
-
-### File Actions
-
-Right-click any favorite file for quick actions:
+Right-click any favorite for quick actions:
 
 ![Context Menu](art/context-menu.png)
 
-- **Remove from Favorites** - Unpin the file
-- **Open Containing Folder** - Open in Windows Explorer
-- **Copy Full Path** - Copy the path to clipboard
+- Remove from Favorites
+- Open Containing Folder  
+- Copy Full Path
 
-## Team Sharing
+### Team or Personal
 
-Favorites are stored in a `favorites.json` file in the solution directory. Commit this file to source control to share favorites across your team.
+Favorites are stored in `favorites.json` in your solution directory.
 
-**Prefer personal favorites?** Add `favorites.json` to your `.gitignore` file.
+- **Share with team:** Commit the file to source control
+- **Keep personal:** Add `favorites.json` to `.gitignore`
 
-## How can I help?
+## Contribute
 
-If you enjoy using the extension, please give it a ★★★★★ rating on the [Visual Studio Marketplace][marketplace].
+If you find this extension useful, please:
 
-Found a bug or have a feature idea? Head over to the [GitHub repo][repo] to open an issue.
-
-Pull requests are enthusiastically welcomed!
-
-If you find this extension saves you time, please consider [sponsoring me on GitHub](https://github.com/sponsors/madskristensen).
+- ⭐ [Rate it on the Marketplace][marketplace]
+- 🐛 [Report issues or request features][repo]
+- 💝 [Sponsor development](https://github.com/sponsors/madskristensen)
