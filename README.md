@@ -11,11 +11,11 @@ or get the [CI build][vsixgallery].
 
 ----------------------------------------
 
-Pin your most important files to the top of Solution Explorer. Stop digging through folders.
+Pin your most important files to the top of Solution Explorer, whether they're in your solution or anywhere else on disk. Stop digging through folders.
 
 ![Favorites Node](art/favorites-node.png)
 
-This extension adds a **Favorites** node to Solution Explorer where you can organize quick links to the files you use most. Built in response to a [highly-requested feature](https://developercommunity.visualstudio.com/t/Pinning-files-on-the-top-of-solution-exp/408940) from the Visual Studio community.
+This extension adds a **Favorites** node to Solution Explorer where you can organize quick links to the files you use most, including files outside your solution. Built in response to a [highly-requested feature](https://developercommunity.visualstudio.com/t/Pinning-files-on-the-top-of-solution-exp/408940) from the Visual Studio community.
 
 ## Quick Start
 

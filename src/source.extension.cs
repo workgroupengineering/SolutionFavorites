@@ -10,7 +10,7 @@ namespace SolutionFavorites
     {
         public const string Id = "SolutionFavorites.9f81ec6e-5c91-4809-9dde-9b3166c327fd";
         public const string Name = "Solution Favorites";
-        public const string Description = @"Pin your frequently used files to a Favorites node in Solution Explorer for quick access.";
+        public const string Description = @"Pin your frequently used files to a Favorites node in Solution Explorer—including files from anywhere on disk, not just your solution.";
         public const string Language = "en-US";
         public const string Version = "1.0.902";
         public const string Author = "Mads Kristensen";
