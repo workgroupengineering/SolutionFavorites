@@ -12,11 +12,13 @@ namespace SolutionFavorites.MEF
     /// </summary>
     internal sealed class FavoritesContextMenuController : IContextMenuController
     {
+        private static FavoritesContextMenuController _instance;
+
         /// <summary>
         /// Singleton instance.
         /// </summary>
         public static FavoritesContextMenuController Instance =>
-            field ??= new FavoritesContextMenuController();
+            _instance ??= new FavoritesContextMenuController();
 
         /// <summary>
         /// Gets the currently selected item for command handlers.
