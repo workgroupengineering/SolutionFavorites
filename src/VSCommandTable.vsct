@@ -36,7 +36,7 @@
     <Groups>
       <!-- Group for "Add to Favorites" in Solution Explorer file context menu -->
       <!-- Placed after the View Code group (IDG_VS_CTXT_ITEM_VIEWCODE) -->
-      <Group guid="SolutionFavorites" id="AddToFavoritesGroup" priority="0x0100">
+      <Group guid="SolutionFavorites" id="AddToFavoritesGroup" priority="0x0010">
         <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ITEMNODE"/>
       </Group>
       

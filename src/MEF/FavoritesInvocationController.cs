@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Internal.VisualStudio.PlatformUI;
 
 namespace SolutionFavorites.MEF
@@ -14,7 +13,7 @@ namespace SolutionFavorites.MEF
         /// <summary>
         /// Singleton instance.
         /// </summary>
-        public static FavoritesInvocationController Instance => 
+        public static FavoritesInvocationController Instance =>
             _instance ?? (_instance = new FavoritesInvocationController());
 
         private FavoritesInvocationController() { }

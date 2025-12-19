@@ -66,7 +66,9 @@ Files that have been moved or deleted are shown with:
 
 ### Per-Solution Storage
 
-Favorites are stored per solution in the `.vs` folder, so each solution maintains its own set of favorites. The favorites persist even when the solution is closed and reopened.
+Favorites are stored in a `favorites.json` file in the solution directory. This file can be committed to source control so your team can share a common set of favorites. Each solution maintains its own set of favorites that persist across sessions.
+
+If you prefer to keep favorites personal and not share them with your team, simply add `favorites.json` to your `.gitignore` file.
 
 ## How can I help?
 

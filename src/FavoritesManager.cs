@@ -131,6 +131,7 @@ namespace SolutionFavorites
 
         /// <summary>
         /// Gets the favorites file path for the current solution.
+        /// Stored in the solution directory so it can be committed to source control.
         /// </summary>
         private string GetFavoritesFilePath(string solutionPath)
         {
@@ -138,8 +139,7 @@ namespace SolutionFavorites
                 return null;
 
             var solutionDir = Path.GetDirectoryName(solutionPath);
-            var solutionName = Path.GetFileNameWithoutExtension(solutionPath);
-            return Path.Combine(solutionDir, ".vs", solutionName, "favorites.json");
+            return Path.Combine(solutionDir, "favorites.json");
         }
 
         /// <summary>
