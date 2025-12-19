@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Windows;
 using Microsoft.Internal.VisualStudio.PlatformUI;
@@ -16,20 +15,12 @@ namespace SolutionFavorites.MEF
     /// Represents a favorited file node in the Favorites tree.
     /// </summary>
     internal sealed class FavoriteFileNode :
-        ITreeDisplayItem,
+        FavoriteNodeBase,
         ITreeDisplayItemWithImages,
         IPrioritizedComparable,
-        IBrowsablePattern,
-        IInteractionPatternProvider,
-        IContextMenuPattern,
         IInvocationPattern,
-        IDragDropSourcePattern,
-        ISupportDisposalNotification,
-        INotifyPropertyChanged,
-        IDisposable
+        IDragDropSourcePattern
     {
-        private bool _disposed;
-
         // Cache for file icons to avoid repeated expensive IVsImageService2 calls
         private static readonly ConcurrentDictionary<string, ImageMoniker> _fileIconCache = new ConcurrentDictionary<string, ImageMoniker>();
 
@@ -37,7 +28,7 @@ namespace SolutionFavorites.MEF
         private static IVsImageService2 ImageService => _imageService ?? (_imageService = VS.GetRequiredService<SVsImageService, IVsImageService2>());
         private static IVsImageService2 _imageService;
 
-        private static readonly HashSet<Type> _supportedPatterns = new HashSet<Type>
+        protected override HashSet<Type> SupportedPatterns { get; } = new HashSet<Type>
         {
             typeof(ITreeDisplayItem),
             typeof(IBrowsablePattern),
@@ -48,21 +39,15 @@ namespace SolutionFavorites.MEF
         };
 
         public FavoriteFileNode(FavoriteItem item, object parent)
+            : base(parent)
         {
             Item = item;
-            SourceItem = parent;
         }
-
 
         /// <summary>
         /// The underlying favorite item data.
         /// </summary>
         public FavoriteItem Item { get; }
-
-        /// <summary>
-        /// Parent node.
-        /// </summary>
-        public object SourceItem { get; }
 
         /// <summary>
         /// Gets the absolute file path.
@@ -75,13 +60,11 @@ namespace SolutionFavorites.MEF
         public bool FileExists => !string.IsNullOrEmpty(Item.Path) && File.Exists(AbsoluteFilePath);
 
         // ITreeDisplayItem
-        public string Text => Item.Name;
-        public string ToolTipText => AbsoluteFilePath ?? Item.Name;
-        public object ToolTipContent => ToolTipText;
-        public string StateToolTipText => FileExists ? string.Empty : "File not found";
-        System.Windows.FontWeight ITreeDisplayItem.FontWeight => System.Windows.FontWeights.Normal;
+        public override string Text => Item.Name;
+        public override string ToolTipText => AbsoluteFilePath ?? Item.Name;
+        public override string StateToolTipText => FileExists ? string.Empty : "File not found";
         System.Windows.FontStyle ITreeDisplayItem.FontStyle => FileExists ? System.Windows.FontStyles.Normal : System.Windows.FontStyles.Italic;
-        public bool IsCut => !FileExists;
+        public override bool IsCut => !FileExists;
 
         // ITreeDisplayItemWithImages
         public ImageMoniker IconMoniker
@@ -109,7 +92,7 @@ namespace SolutionFavorites.MEF
         public ImageMoniker OverlayIconMoniker => default;
         public ImageMoniker StateIconMoniker => FileExists ? default : KnownMonikers.StatusWarning;
 
-        // IPrioritizedComparable
+        // IPrioritizedComparable - Files appear after folders
         public int Priority => 1;
 
         public int CompareTo(object obj)
@@ -121,56 +104,12 @@ namespace SolutionFavorites.MEF
             return 0;
         }
 
-        // IBrowsablePattern
-        public object GetBrowseObject() => this;
-
-        // IInteractionPatternProvider
-        public TPattern GetPattern<TPattern>() where TPattern : class
-        {
-            if (!_disposed && _supportedPatterns.Contains(typeof(TPattern)))
-            {
-                return this as TPattern;
-            }
-
-            if (typeof(TPattern) == typeof(ISupportDisposalNotification))
-            {
-                return this as TPattern;
-            }
-
-
-            return null;
-        }
-
-        // IContextMenuPattern
-        public IContextMenuController ContextMenuController => FavoritesContextMenuController.Instance;
-
         // IInvocationPattern
         public IInvocationController InvocationController => FavoritesInvocationController.Instance;
         public bool CanPreview => FileExists;
 
         // IDragDropSourcePattern
         public IDragDropSourceController DragDropSourceController => FavoritesDragDropController.Instance;
-
-        // ISupportDisposalNotification
-        public bool IsDisposed => _disposed;
-
-        // INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void RaisePropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public void Dispose()
-        {
-            if (!_disposed)
-            {
-                _disposed = true;
-                RaisePropertyChanged(nameof(IsDisposed));
-            }
-        }
-
 
         private static ImageMoniker GetFileIcon(string filePath)
         {

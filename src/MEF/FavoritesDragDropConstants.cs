@@ -3,7 +3,7 @@ namespace SolutionFavorites.MEF
     /// <summary>
     /// Constants for favorites drag-drop operations.
     /// </summary>
-    internal static class FavoritesDragDropTargetController
+    internal static class FavoritesDragDropConstants
     {
         /// <summary>
         /// Custom data format for favorites drag-drop.

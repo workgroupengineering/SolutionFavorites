@@ -34,7 +34,7 @@ namespace SolutionFavorites.MEF
             DependencyObject dragSource = (Keyboard.FocusedElement as DependencyObject) ?? Application.Current.MainWindow;
             
             // Store the actual node objects for drag-drop
-            var dataObj = new DataObject(FavoritesDragDropTargetController.FavoritesDataFormat, dragItems.ToArray());
+            var dataObj = new DataObject(FavoritesDragDropConstants.FavoritesDataFormat, dragItems.ToArray());
             
             DragDrop.DoDragDrop(dragSource, dataObj, DragDropEffects.Move);
 
