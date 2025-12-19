@@ -11,64 +11,68 @@ or get the [CI build][vsixgallery].
 
 ----------------------------------------
 
-Pin your frequently used files to a **Favorites** node in Solution Explorer for quick access. Organize them into virtual folders and rearrange with drag and drop.
+Stop hunting through deep folder hierarchies! **Solution Favorites** lets you pin your most-used files to a dedicated **Favorites** node at the top of Solution Explorer for instant access.
 
 ![Favorites Node](art/favorites-node.png)
 
-## Features
+**Organize** with virtual folders | **Rearrange** with drag & drop | **Share** with your team via source control
 
-### Add Files to Favorites
+## Getting Started
 
-Right-click any file in Solution Explorer and select **Add to Favorites** to pin it.
+1. Right-click any file in Solution Explorer
+2. Select **Add to Favorites**
+3. Access your pinned files from the **Favorites** node at the top of Solution Explorer
 
 ![Add to Favorites](art/add-to-favorites.png)
 
-### Quick Access
+## Features
 
-All your favorite files appear under a **Favorites** node at the top of Solution Explorer. Double-click to open any file instantly.
+### Pin Files for Quick Access
+
+Double-click any favorite to open it instantly. No more navigating through deep folder structures to find your frequently-used files.
 
 ### Virtual Folders
 
-Organize your favorites into virtual folders for better organization:
+Organize your favorites into a custom folder structure:
 
-- Right-click the **Favorites** node and select **New Folder** to create a folder at the root level
-- Right-click any folder and select **New Folder** to create nested subfolders
-- **Rename** or **Remove** folders from the context menu
+- Create folders at the root level or nested within other folders
+- Rename or remove folders from the right-click context menu
+- Build a hierarchy that matches how you think about your project
 
 ### Drag and Drop
 
-Rearrange your favorites easily:
+Rearrange your favorites effortlessly:
 
 - Drag files between folders
-- Drag files to the root Favorites node
-- Drag folders to reorganize the hierarchy
+- Move files back to the root Favorites node
+- Reorganize folders within the hierarchy
 
 ### Toggle Visibility
 
-Use the **Toggle Favorites** button on the Solution Explorer toolbar to show or hide the Favorites node.
-
-### File Context Menu
-
-Right-click any favorite file to access additional actions:
-
-![Context Menu](art/context-menu.png)
-
-- **Remove from Favorites** - Unpin the file
-- **Open Containing Folder** - Open the file location in Windows Explorer
-- **Copy Full Path** - Copy the file path to clipboard
+Use the **Toggle Favorites** button on the Solution Explorer toolbar to show or hide the Favorites node when you need more space.
 
 ### Missing File Detection
 
-Files that have been moved or deleted are shown with:
+Files that have been moved or deleted are clearly indicated with:
 - A warning icon overlay
 - Italic text style
 - "File not found" tooltip
 
-### Per-Solution Storage
+### File Actions
 
-Favorites are stored in a `favorites.json` file in the solution directory. This file can be committed to source control so your team can share a common set of favorites. Each solution maintains its own set of favorites that persist across sessions.
+Right-click any favorite file for quick actions:
 
-If you prefer to keep favorites personal and not share them with your team, simply add `favorites.json` to your `.gitignore` file.
+![Context Menu](art/context-menu.png)
+
+- **Remove from Favorites** - Unpin the file
+- **Open Containing Folder** - Open in Windows Explorer
+- **Copy Full Path** - Copy the path to clipboard
+
+## Team Sharing
+
+Favorites are stored in a `favorites.json` file in the solution directory. Commit this file to source control to share favorites across your team.
+
+**Prefer personal favorites?** Add `favorites.json` to your `.gitignore` file.
 
 ## How can I help?
 

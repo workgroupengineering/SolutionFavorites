@@ -3,20 +3,24 @@
   "categories": [ "other", "team development" ],
   "private": false,
   "identity": {
-    "internalName": "WorkflowBrowser",
+    "internalName": "SolutionFavorites",
     "tags": [ "files", "folders", "workspace", "repo" ]
   },
   "assetFiles": [
     {
-      "pathOnDisk": "art/animation.gif",
-      "targetPath": "art/animation.gif"
+      "pathOnDisk": "art/favorites-node.png",
+      "targetPath": "art/favorites-node.png"
     },
     {
-      "pathOnDisk": "art/add-physical-folder.png",
-      "targetPath": "art/add-physical-folder.png"
+      "pathOnDisk": "art/add-to-favorites.png",
+      "targetPath": "art/add-to-favorites.png"
+    },
+    {
+      "pathOnDisk": "art/context-menu.png",
+      "targetPath": "art/context-menu.png"
     }
   ],
   "overview": "README.md",
   "publisher": "MadsKristensen",
-  "repo": "https://github.com/madskristensen/WorkspaceFiles"
+  "repo": "https://github.com/madskristensen/SolutionFavorites"
 }
