@@ -45,6 +45,16 @@
         <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_FOLDERNODE"/>
       </Group>
       
+      <!-- Group for "Add to Favorites" in Web Project file context menu -->
+      <Group guid="SolutionFavorites" id="AddToFavoritesWebItemGroup" priority="0x0010">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_WEBITEMNODE"/>
+      </Group>
+      
+      <!-- Group for "Add to Favorites" in Web Project folder context menu -->
+      <Group guid="SolutionFavorites" id="AddToFavoritesWebFolderGroup" priority="0x0010">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_WEBFOLDER"/>
+      </Group>
+      
       <!-- Group for toggle button on Solution Explorer toolbar -->
       <Group guid="SolutionFavorites" id="SolutionExplorerToolbarGroup" priority="0x0600">
         <Parent guid="guidSHLMainMenu" id="IDM_VS_TOOL_PROJWIN"/>
@@ -212,6 +222,19 @@
     </Buttons>
   </Commands>
 
+  <!-- Place existing commands in web project context menus -->
+  <CommandPlacements>
+    <!-- Add to Favorites command in Web Project file context menu -->
+    <CommandPlacement guid="SolutionFavorites" id="AddToFavorites" priority="0x0100">
+      <Parent guid="SolutionFavorites" id="AddToFavoritesWebItemGroup" />
+    </CommandPlacement>
+    
+    <!-- Add to Favorites command in Web Project folder context menu -->
+    <CommandPlacement guid="SolutionFavorites" id="AddFolderToFavorites" priority="0x0100">
+      <Parent guid="SolutionFavorites" id="AddToFavoritesWebFolderGroup" />
+    </CommandPlacement>
+  </CommandPlacements>
+
   <VisibilityConstraints>
     <VisibilityItem guid="SolutionFavorites" id="ToggleFavoritesVisibility" context="UICONTEXT_SolutionHasSingleProject" />
     <VisibilityItem guid="SolutionFavorites" id="ToggleFavoritesVisibility" context="UICONTEXT_SolutionHasMultipleProjects" />
@@ -227,6 +250,8 @@
       <!-- Groups -->
       <IDSymbol name="AddToFavoritesGroup" value="0x0010" />
       <IDSymbol name="AddToFavoritesFolderGroup" value="0x0011" />
+      <IDSymbol name="AddToFavoritesWebItemGroup" value="0x0012" />
+      <IDSymbol name="AddToFavoritesWebFolderGroup" value="0x0013" />
       <IDSymbol name="SolutionExplorerToolbarGroup" value="0x0020" />
       <IDSymbol name="FileEditGroup" value="0x0060" />
       <IDSymbol name="FileActionsGroup" value="0x0070" />
