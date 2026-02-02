@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.Internal.VisualStudio.PlatformUI;
 
 namespace SolutionFavorites.MEF
@@ -47,7 +48,10 @@ namespace SolutionFavorites.MEF
             }
             else
             {
-                VS.Documents.OpenAsync(fileNode.AbsoluteFilePath).FireAndForget();
+                VS.Documents.OpenAsync(fileNode.AbsoluteFilePath).ContinueWith(async async =>
+                {
+                    await VS.Commands.ExecuteAsync("SolutionExplorer.SyncWithActiveDocument");
+                }, TaskScheduler.Default).FireAndForget();
             }
         }
     }
